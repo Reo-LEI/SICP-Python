@@ -25,7 +25,7 @@ def cdr_n(seqs):
 
 def lister(*args):
     def conser(x, y):
-        if y == []:
+        if y is []:
             return cons(x, None)
         else:
             return cons(x, conser(y[0], y[1:]))
@@ -33,10 +33,14 @@ def lister(*args):
     first, other = L[0], L[1:]
     return conser(first, other)
 
-##def lister(first, *args):
-##    if first == (): return None
-##    elif isinstance(first, tuple): return cons(first[0], lister(first[1:]))
-##    else: return cons(first, lister(args))
+
+# def lister(first, *args):
+#     if first == ():
+#         return None
+#     elif isinstance(first, tuple):
+#         return cons(first[0], lister(first[1:]))
+#     else:
+#         return cons(first, lister(args))
 
 
 def list_ref(item, n):
@@ -115,7 +119,7 @@ def mapping_n(func, *seqs):
     # 接受n个序列，依次取各个序列第k元素组成序列seq(k)作为func的参数，返回结果序列
     def car_n(seq):
         return mapping(car, seq)
-    
+
     def cdr_n(seq):
         return mapping(cdr, seq)
 
@@ -126,7 +130,7 @@ def mapping_n(func, *seqs):
             else:
                 return [car(s)]+translator(cdr(s))
         return tuple(translator(seq))
-        
+
     def _map(f, seq):
         if car(seq) is None:
             return None
@@ -138,7 +142,7 @@ def mapping_n(func, *seqs):
     else:
         seqs = seqs[0]  # 若为树直接解包
     return _map(func, seqs)
-    
+
 
 def for_each(proc, item):
     if item is None:
@@ -160,7 +164,7 @@ def subsets(s):
 
 
 def display(items):
-    
+
     def order(item):
         if item is None:
             return False
@@ -170,8 +174,8 @@ def display(items):
             return order(car(item))
 
     if order(items):
-        
-        def show(item): 
+
+        def show(item):
             if not isinstance(item, tuple):
                 # 判断叶子，由[show(car(item))]处理
                 # 直接返回元素，
@@ -181,19 +185,19 @@ def display(items):
                 # 嵌套列表叶子为(x, None)形式，由show(cdr(item))处理
                 # 避免None再次引用递归，提前省去并除去None标识符
                 # [car(item)]为与其余元素合并作准备
-                return [car(item)]  
+                return [car(item)]
 
             elif not isinstance(cdr(item), tuple):
                 # 非嵌套列表为序对，序对cdr(item)由于没有None所以并非(x, None)形式
                 # 序对用元组表示
                 # 序对cdr(item)为元素，所以[show(cdr(item))]需嵌套到列表中合并
-                return tuple([show(car(item))]+[show(cdr(item))])  
+                return tuple([show(car(item))]+[show(cdr(item))])
 
             elif isinstance(car(cdr(item)), tuple) and cdr(cdr(item)) == None:
                 # item为只有一项的嵌套列表,其第一项为列表，第二项为标识符None
                 # [show(car(item))]构建外层列表
                 # [show(car(cdr(item)))] 取嵌套列表余下元素并嵌套
-                return [show(car(item))]+[show(car(cdr(item)))] 
+                return [show(car(item))]+[show(car(cdr(item)))]
 
             else:
                 # item列表大于一项
@@ -202,7 +206,7 @@ def display(items):
                 return [show(car(item))]+show(cdr(item))
 
     else:
-            
+
         def nested(item):
             if item is None:
                 return False
@@ -210,25 +214,25 @@ def display(items):
                 return True
             else:
                 return nested(car(item))
-    
+
         def show(item):
             if not isinstance(item, tuple):
                 return item
             elif car(item) is None:
-                return [cdr(item)]  
+                return [cdr(item)]
             elif not isinstance(car(item), tuple):
-                return tuple([show(car(item))]+[show(cdr(item))])  
+                return tuple([show(car(item))]+[show(cdr(item))])
             elif nested(item):
-                return [show(cdr(car(item)))]+[show(cdr(item))] 
+                return [show(cdr(car(item)))]+[show(cdr(item))]
             else:
                 return show(car(item))+[show(cdr(item))]
-        
+
     print(show(items), '\n')
     return show(items)
 
 if __name__ == '__main__':
     display(lister(1, 2, 3, 4))
-    
+
     x = cons(lister(1, 2), lister(3, 4))
     display(x)
 #    print(x, length(x), count_leave(x), '\n')
@@ -244,7 +248,7 @@ if __name__ == '__main__':
     p = lister(1, lister(2, lister(3, 4)))
     display(p)
 #    print(p, length(p), count_leave(p), '\n')
-    
+
     list1 = lister(1, 2, 3)
     list2 = lister(4, 5, 6)
     list3 = lister(7, 8, 9)
