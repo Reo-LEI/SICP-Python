@@ -25,7 +25,7 @@ def cdr_n(seqs):
 
 def lister(*args):
     def conser(x, y):
-        if y is []:
+        if not y:
             return cons(x, None)
         else:
             return cons(x, conser(y[0], y[1:]))
