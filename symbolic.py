@@ -29,7 +29,7 @@ def memq(sy, seq):
 
 
 def symbol_test(sy):
-    if isinstance(sy, str):
+    if isinstance(sy, (str, int, float)):
         return True
     else:
         return False
