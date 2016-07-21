@@ -1,5 +1,5 @@
 # from sympy import *  # sympy 不能将运算符符号化，改用字符（eg： ‘a'）替代符号
-from orderedpair import *
+from orderedPair import *
 
 __all__ = ['ql', 'eq', 'memq', 'symt', 'eql']
 

@@ -1,4 +1,4 @@
-from orderedpair import *
+from orderedPair import *
 from symbolic import *
 import sys
 
