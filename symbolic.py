@@ -19,7 +19,6 @@ def equal(sy1, sy2):
 
 
 def memq(sy, seq):
-    # print(sy, id(sy), car(seq), id(car(seq)))
     if seq is None:
         return False
     elif eq(sy, car(seq)):
