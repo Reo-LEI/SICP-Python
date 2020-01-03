@@ -1,18 +1,15 @@
-#SICP-Python
-##本项目的目标是希望能利用python尽可能地模拟scheme，通过更相似的表达方式而能更好地体验SICP所表达的思想
+# SICP-Python
 
-由于时间仓促未来得及整理排版，但你可以在这里面找到相应的python版本答案和对应的工具包  
+## The goal of this project is to use python to emulate the LISP scheme solutions to the SICP exercises as much as possible, and to better experience the ideas expressed by SICP in a more familiar language.
 
-若时间充裕会补上相应的解答思路  
+This project mainly refers to the following websites:
 
-本项目主要参考以下网站：  
+[SICP Problem Set] (http://sicp.readthedocs.io/en/latest/index.html)
 
-[SICP 解题集](http://sicp.readthedocs.io/en/latest/index.html)  
+[sicp-solutions] (http://community.schemewiki.org/?sicp-solutions)
 
-[sicp-solutions](http://community.schemewiki.org/?sicp-solutions)   
+You can see the answers in LISP scheme with detailed explanations there.
 
-你也可以从这里得到scheme版本答案和详细的解题思路  
+If you have any ideas, please feel free to communicate with me.
 
-若有任何想法欢迎随时与我交流  
-
-持续更新中...
+Continuously updating...
