@@ -4,7 +4,7 @@
 
 This project mainly refers to the following websites:
 
-[SICP Problem Set] (http://sicp.readthedocs.io/en/latest/index.html)
+[SICP Problem Set] (https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book.html)
 
 [sicp-solutions] (http://community.schemewiki.org/?sicp-solutions)
 
